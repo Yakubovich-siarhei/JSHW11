@@ -17,7 +17,7 @@ fetch('http://api.openweathermap.org/data/2.5/weather?q='+nameSity+'&lang=ru&app
   console.log(data);
 //     //добавляем название города
     document.querySelector('.weather__city').textContent = data.name;
-    document.querySelector('.weather__forecast').innerHTML = Math.round(data.main.temp).toFixed(1) + '&deg;';
+    document.querySelector('.weather__forecast').textContent = (data.main.temp).toFixed(1) + '°';
     //Добавляем описание погоды
     document.querySelector('.weather__desc').textContent = data.weather[0]['description'] + ", ";
     // document.querySelector('.weather__desc2').textContent = data.weather[1]['description'];
@@ -26,37 +26,37 @@ fetch('http://api.openweathermap.org/data/2.5/weather?q='+nameSity+'&lang=ru&app
      //добавляем ветер
     document.querySelector('.weather__wind').textContent = 'скорость ветра = '+ data.wind.speed + 'м/сек';
 
-let warning;
+    let warning;
 
-  if (data.main.temp >= 30 ) {
-      warning = "очень жарко, возьмите с собой воду"
-      console.log(warning);
-  } else if 
-    (data.main.temp <= 15 & data.main.temp >= 7 ) {
-      warning = "прохладно"
-      console.log(warning); 
-  } else if 
-    (data.main.temp <= 8 & data.main.temp >= 0) {
-      warning = "будет холодно, не забудьте шапку"
-      console.log(warning); 
-  } else if 
-    (data.main.temp <= 0) {
-      warning = "будет холодно, не забудьте шапку и шарф, на улице минусовая температура"
-      console.log(warning);
-  }
-
-document.querySelector('.weather__warning').textContent = warning;
-
-let wind;
-
-if (data.wind.speed >= 5 ) {
-      wind = " и сильный ветер"
-      console.log(wind); 
-      } else {
-        wind = " "
-        console.log(wind);
-      }
-document.querySelector('.weather__wind_speed').textContent = wind;  
+    if (data.main.temp >= 30 ) {
+        warning = "очень жарко, возьмите с собой воду"
+        console.log(warning);
+    } else if 
+      (data.main.temp <= 15 & data.main.temp >= 7 ) {
+        warning = "прохладно"
+        console.log(warning); 
+    } else if 
+      (data.main.temp <= 8 & data.main.temp >= 0) {
+        warning = "будет холодно, одевайтесь теплее"
+        console.log(warning); 
+    } else if 
+      (data.main.temp <= 0) {
+        warning = "будет холодно, не забудьте шапку и шарф, температура ниже 0 ° "
+        console.log(warning);
+    }
+  
+  document.querySelector('.weather__warning').textContent = warning;
+  
+  let wind;
+  
+  if (data.wind.speed >= 5 ) {
+        wind = " и сильный ветер"
+        console.log(wind); 
+        } else {
+          wind = " "
+          console.log(wind);
+        }
+  document.querySelector('.weather__wind_speed').textContent = wind;
 
   }).catch(function () {
         //Обрабатываем ошибки

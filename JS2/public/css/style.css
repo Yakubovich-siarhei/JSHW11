@@ -34,37 +34,8 @@ header .top2 .add_route {
 	color: #978777;
   }
 
-table {
-  border-collapse: collapse;
-  margin: 0 auto;
-  font-size: 1.2rem;
-}
-table caption {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-tr td, tr th { padding: .4rem; }
-caption { 
-  font-size: 1.4rem;
-  font-weight: bolder;
-}
-tr td:nth-of-type(3), tr td:nth-of-type(4) { 
-  text-align: center;
-}
-thead {
-  border-bottom: 2px solid #333;
-}
-tbody tr {
-  border-bottom: 1px solid #ddd;
-}
-tr.hidden td {
-  animation: hide 1s 1s forwards;
-}
-tr.hidden {
-  opacity: 0;
-  border-bottom: none;
-}
-tbody tr button {
+
+.tbody tr button {
   width: 36px;
   height: 36px;
   margin-left: 1rem;
@@ -76,7 +47,7 @@ tbody tr button {
   opacity: .6;
   transition: .5s;
 }
-tbody tr button:hover {
+.tbody tr button:hover {
   opacity: .9;
   cursor: pointer;
 }

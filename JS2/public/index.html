@@ -17,6 +17,9 @@
     <section class="top1">
         <div class="new_route">
             <h1>Минск <i class="fas fa-arrows-alt-h"></i> Москва</h1>
+            <form name="myform" >
+                Дата <input id="mydate" style="border: none; background:none;" disabled>
+            </form>
             <p>7 &nbsp;&mdash; 31 декабря</p>
         </div>
     </section>
@@ -36,9 +39,7 @@
                         </select></tr>
                     <tr><td><input type="text" placeholder=""  id="t1" value="Минск"></td></tr>
                     <tr><td><input type="text" placeholder="" id="t5" value="Москва"></td></tr>
-                    <tr><td><form name="myform" >
-                            Дата отправления:  <input id="mydate">
-                        </form></td></tr>
+                    <tr><td>Дата отправления: <input type="date"  id="t4" ></td></tr>
                     <tr><td>Дата прибытия: <input type="date"  id="t3" value="2020-02-20"></td></tr>                    
                     <tr><td><input type="number" step="0.10" min="0" placeholder="0,00" id="t6"> ₽</td></tr>
                                            
@@ -51,10 +52,7 @@
 </header>
 
 <section>
-    <table id="myTable" cellspacing="0" class ="demotable">
-        <tbody>
-        </tbody>
-    </table>
+
 
     <div>
       <span class="weather__city"></span>
@@ -66,7 +64,7 @@
       <span class="weather__warning"></span>
       <span class="weather__wind_speed"></span>
     </div>
-    <button type="button" id="weatherButton">погода</button>
+    <!-- <button type="button" id="weatherButton">погода</button> -->
 </section>
 
 <div id="wrap">
