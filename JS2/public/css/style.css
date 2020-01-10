@@ -51,3 +51,23 @@ header .top2 .add_route {
   opacity: .9;
   cursor: pointer;
 }
+
+.outputDiv {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 800px;
+  height: 100%;
+}
+
+.flickr_img {
+  width: 180px;
+  height: 180px;
+  overflow: inherit;
+  padding: 10px;
+}
+
+.flickr_img img {
+  max-width:100%;
+  height:auto;  
+}

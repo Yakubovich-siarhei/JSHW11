@@ -18,6 +18,7 @@ fetch('http://api.openweathermap.org/data/2.5/weather?q='+nameSity+'&lang=ru&app
 //     //добавляем название города
     document.querySelector('.weather__city').textContent = data.name;
     document.querySelector('.weather__forecast').textContent = (data.main.temp).toFixed(1) + '°';
+    document.querySelector('.weather__feels_like').textContent = ' ощущается как '+ (data.main.feels_like).toFixed(1) + '°';
     //Добавляем описание погоды
     document.querySelector('.weather__desc').textContent = data.weather[0]['description'] + ", ";
     // document.querySelector('.weather__desc2').textContent = data.weather[1]['description'];
