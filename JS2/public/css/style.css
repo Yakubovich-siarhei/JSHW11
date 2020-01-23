@@ -11,15 +11,15 @@ header .top2 .add_route {
 	display: flex;
 	justify-content: center;
 }
-
+/* 
 .demotable {
 	border-collapse: collapse;
 	counter-reset: schetchik;  
-	/* счётчик с названием "schetchik" работает в рамках класса .demotable */ 
+	счётчик с названием "schetchik" работает в рамках класса .demotable 
   }
   .demotable tr {
 	counter-increment: schetchik;  
-	/* при встрече тега tr счётчик с названием "schetchik" увеличивается на единицу */ 
+	/* при встрече тега tr счётчик с названием "schetchik" увеличивается на единицу 
   }
   .demotable td,
   .demotable tr:before {
@@ -28,11 +28,11 @@ header .top2 .add_route {
   }
   .demotable tr:before {
 	content: counter(schetchik);  
-	/* значение счётчика с названием "schetchik" записывается в первую клетку строки */ 
+	/* значение счётчика с названием "schetchik" записывается в первую клетку строки 
 	display: table-cell;
 	vertical-align: middle;
 	color: #978777;
-  }
+  } */
 
 
 .tbody tr button {
@@ -70,4 +70,59 @@ header .top2 .add_route {
 .flickr_img img {
   max-width:100%;
   height:auto;  
+}
+
+#wrap {
+  display: none;
+}
+
+#wrap,
+.head,
+#tableAll {
+  width: 80%;
+  margin: 0 auto;
+}
+
+#tableSend,
+#tableWait {
+  width: 100%;  
+}
+
+
+#wrap .nested {
+  background-color: rgba(175, 231, 173, 0.7);
+  border: 1px solid black;
+  display: flex;
+}
+
+#calendarForTasks {
+  display: none;
+}
+
+/* .tableAll #tableWait,
+.tableAll #tableSend {
+  width: 100%;
+} */
+
+/* #tableAll {
+  background-color: rgb(220, 234, 255);  
+} */
+
+#tableAll .nested {
+  background-color: rgb(220, 234, 255); 
+  width: 100%;
+  border: 1px solid black;
+  display: flex;
+}
+
+
+.head {
+  display: flex;
+}
+
+.tHead {
+  background-color: rgba(168, 87, 87, 0.7);
+  border: 1px solid black;  
+  width: 33.3%;
+  height: 50px;
 }

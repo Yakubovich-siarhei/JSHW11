@@ -2,36 +2,145 @@
 import './weather/weather';
 import './flikcapi/flicapi';
 
-function generateTable(){
-  let valueSelect = getValue();
-  for(let i = 0;i < arrTable.length; i++) 
-  table.innerHTML = "";
-  table.innerHTML += '<table class="table demotable" id="myTable" >'+
-    '<tbody class="tbody">'+
-    '<tr class="tr">'+
-    '<td>'+
-    "Вид транспорта: " +valueSelect+
-    " / из "+document.getElementById("t1").value+
-    " в "+document.getElementById("t5").value+
-    " / отправление "+document.getElementById("t4").value+
-    " прибытия "+document.getElementById("t3").value+
-    " / цена билета "+document.getElementById("t6").value+ " руб."+
-    // '<button id="remove" name="remove">'+
-    // '</button>'+
-    '<td><input type="button" value="Удалить" id="remove"></td>'+
-    '</td>'+
-    '</tr>'+
-    '<tbody>'+
-    '</table>'; 
-}
 
+let mydate2 = document.getElementById('mydate');
+
+let table = document.getElementById('table');
+let tableSend = document.getElementById('tableSend');
+let tableWait = document.getElementById('tableWait');
+let logPersons = localStorage.getItem('tableLoad');
+let person = {};
+
+  let t;
+  
+  function generateTable(){
+
+    var button = document.createElement("button");
+    button.innerHTML = "Do Something";
+    button.id = 'remove';      
+    
+
+    if (document.getElementById("t3").value >= document.getElementById("calendarForTasks").value) {
+      t = tableWait;
+    } else if (document.getElementById("t3").value <= document.getElementById("calendarForTasks").value) {
+      t = tableSend;
+    } console.log(t);
+    
+  let valueSelect = getValue();
+  for(let i=0; i<person.length; i++)
+    t.innerHTML = "";
+    t.innerHTML += 
+    `<div class="td nested">
+        <p>
+          Вид транспорта: ${valueSelect}
+          / из ${document.getElementById("t1").value}
+          в ${document.getElementById("t5").value}
+          / отправление ${document.getElementById("t4").value}
+          прибытия ${document.getElementById("t3").value}
+          / цена билета ${document.getElementById("t6").value} руб.
+        </p>
+        <button class="remove">remove</button>
+    </div>`
+    // nested.appendChild(button)
+      person = {
+        name: valueSelect,
+        description: document.getElementById("t1").value,
+        area: document.getElementById("t5").value,
+        age: document.getElementById("t4").value,
+        growth: document.getElementById("t3").value,
+        inp: document.getElementById("t6").value
+    }
+    tableAll.innerHTML = tableWait.innerHTML + tableSend.innerHTML
+    console.log(person)
+    logPersons.push(person);
+    localStorage.setItem("tableLoad", JSON.stringify(logPersons));
+    console.log(logPersons) 
+    return true;
+}
 
 document.getElementById('buttonTable').onclick = generateTable;
 
-//масси в котором хрранится все
-let arrTable = [];
-   
+document.querySelectorAll('.remove').onclick = function remove (){
+  let nested = document.querySelectorAll('.nested');
+  nested.parentNode.removeChild(nested);
+}
 
+
+tAll.addEventListener ("click",function (){
+  tableAll.innerHTML = tableWait.innerHTML + tableSend.innerHTML
+  tableAll.style.display = 'block'
+  tableSend.style.display = 'none'
+  tableWait.style.display = 'none'
+  wrap.style.display = 'none'
+});
+
+tSend.addEventListener ("click",function (){
+  tableAll.style.display = 'none'
+  wrap.style.display = 'block'
+  wrap.innerHTML = tableSend.innerHTML
+  tableSend.style.display = 'block'
+  tableWait.style.display = 'none'
+  wrap.style.backgroundColor = 'white'
+});
+
+tWait.addEventListener ("click",function (){
+  tableAll.style.display = 'none'
+  wrap.style.display = 'block'
+  wrap.innerHTML = tableWait.innerHTML
+  tableSend.style.display = 'none'
+  tableWait.style.display = 'block'
+  wrap.style.backgroundColor = 'black'
+});
+
+
+// var d = document;
+
+// d.getElementById('remove').addEventListener ("click",function (){
+// 	var main_block = d.getElementById("container");
+// 	var blocks = main_block.children;
+// 	for (var i=blocks.length + 1; i >= 0; i--) {
+// 		if (i <= 1) break;
+// 		main_block.removeChild(blocks[i]);
+// 	}
+// });
+
+// document.getElementById('remove').addEventListener ("click",function (){
+//   let remove = document.querySelector('.demotable');
+// remove.remove();
+// });
+
+
+
+// document.getElementById('remove').addEventListener ("click",function (){
+// var x = document.getElementById('td');
+// x.parentNode.removeChild(x);
+// })
+
+// document.getElementById('remove').addEventListener ("click",function remove (){
+//   this.parentNode.parentNode.removeChild(this.parentNode);
+// });
+
+// document.getElementById('remove').addEventListener ("click",function remove (){
+// [].forEach.call( document.querySelectorAll('tr td:last-child'), function(td,i) {
+//        var parent = td.parentNode;
+//        parent.removeChild(td);
+//   });
+// });
+
+
+
+
+
+
+
+logPersons = JSON.parse(logPersons);
+
+if (logPersons === null) {
+    logPersons = [];
+}
+
+   
+//value select
 function getValue() {
   let select = document.getElementById("select");
   let value = select.value;
@@ -40,6 +149,8 @@ function getValue() {
 
 
 document.getElementById("t4").valueAsDate = new Date();
+
+
 
 let time, hours, minutes, seconds, day, mouth, year;
 time=new Date();

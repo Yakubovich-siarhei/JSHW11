@@ -21,13 +21,12 @@
                 Дата <input id="mydate" style="border: none; background:none;" disabled>
             </form>
             <p>7 &nbsp;&mdash; 31 декабря</p>
+            <input type="date" value="2017-10-25" id="calendarForTasks">
+
         </div>
     </section>
 
     <section class="top2">
-        <nav>
-            <a href="#">Главное табло</a>
-        </nav>
         <div class="add_route">
             <div>
                 <table>
@@ -51,6 +50,59 @@
     </section>
 </header>
 
+
+
+<!-- <div id="top">1
+    <div id="nested">qwqwqw</div>
+    <div id="nested">qwqwqw</div>
+    <div id="nested">qwqwqw</div>
+    <div id="nested">qwqwqw</div>
+  </div> -->
+ <!-- <input type="button" value="Delete" id="remove"> -->
+    <div class="head">
+        <div id="tAll" class="tAll tHead">
+            <p>Главное табло</p>
+        </div>    
+        <div id="tSend" class="tSend tHead">
+            <p>Отправленные</p>
+        </div> 
+        <div id="tWait" class="tWait tHead">
+            <p>Ждут отправления</p>
+        </div>
+    </div>
+<div id="tableAll">     
+    <div id="tableSend">
+        <div id="nested" class="nested">
+            <p>
+                Вид транспорта: автобус
+                / из Минск
+                в волковыск
+                / отправление 2019-12-05
+                прибытия 2019-12-31
+                / цена билета 13 руб.
+            </p>
+            <button class="remove">remove</button>
+        </div>
+    </div>
+    <div id="tableWait"> 
+        <div id="nested" class="nested">
+            <p>
+                Вид транспорта: автобус
+                / из Минск
+                в grodno
+                / отправление 2020-03-30
+                прибытия 2020-03-31
+                / цена билета 20 руб.
+            </p>
+            <button class="remove">remove</button>
+        </div>
+    </div>
+</div>
+<div id="wrap">
+
+</div> 
+
+
 <section>
     <div>
       <span class="weather__city"></span>
@@ -64,14 +116,20 @@
       <span class="weather__wind_speed"></span>
     </div>
 </section>
-
-<div id="wrap">
-    <div id="table"></div>
-</div>
-
 <div id="outputDiv" class="outputDiv"></div>
+
+<script>
+function showCurrentDate(){
+	var d = new Date(),
+      new_value=d.toISOString().slice(0,10);
+
+		document.getElementById("calendarForTasks").value=new_value;
+}
+showCurrentDate();
+
+
+</script>
   
-<script src="../bundle.js"></script>
 </body>
 </html>
 
